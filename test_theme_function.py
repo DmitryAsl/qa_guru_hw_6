@@ -29,8 +29,8 @@ def test_dark_theme_by_time_and_user_choice():
     if dark_theme_enabled_by_user is None:
         if time(hour=6) > current_time or current_time > time(hour=22):
             is_dark_theme = True
-    elif dark_theme_enabled_by_user:
-        is_dark_theme = True
+    else:
+        is_dark_theme = dark_theme_enabled_by_user
 
     assert is_dark_theme is True
 
@@ -80,6 +80,7 @@ def func_name_and_arguments(func, *args):
     func_name = (' '.join(func.__name__.split('_'))).title()
     params = ', '.join(str(arg) for arg in args)
     result = func_name + ' [' + params + ']'
+    print(result)
     return result
 
 
